@@ -1,13 +1,25 @@
 # Advanced Directives with Angular JS
 
-Code for a screencast that examines some of the more advanced features in Angular, specifically Directives and how we can leverage the power of custom elements and attributes to map Domain Specific concepts through HTML, translate those into Value Objects in our Domain, and achieve rendered simple HTML output.
+This [screencast](https://www.youtube.com/watch?v=Ty8XcASK9js) examines some of the more advanced features in Angular, specifically Directives and how we can leverage the power of custom elements and attributes to map Domain Specific concepts through HTML, translate those into Value Objects in our Domain, and gain rendered simple HTML output. Also discussed: complexity, creating a DSL with directives, debugging techniques, tips and tricks.
 
-## Topics Covered:
-- html as a dsl
-- abstractions
-- $compile
-- $templateRequest
-- $templateCache
-- directive definition object
-- requiring other directives
-- directive communication ($scope.$broadcast, $scope.$on)
+If you're interested in some more context prior to watching check out my other [angular screencasts](http://www.youtube.com/user/vidjadavemo/videos) and an earlier post on the [power of web components as abstractions](http://blog.testdouble.com/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html); this screencast covers:
+
+* html as a dsl
+* abstractions in html
+* [$compile](https://docs.angularjs.org/api/ng/service/$compile)
+* [$templateRequest](https://docs.angularjs.org/api/ng/service/$templateRequest)
+* [$templateCache](https://docs.angularjs.org/api/ng/service/$templateCache)
+* [directive definition object](https://docs.angularjs.org/api/ng/service/$compile#directive-definition-object)
+* [requiring other directives](https://docs.angularjs.org/api/ng/service/$compile#-require-)
+* [directive communication ($scope.$broadcast, $scope.$on)](https://docs.angularjs.org/guide/scope#scope-events-propagation)
+
+# Running the Code Locally
+
+I like to use the npm module [serve]() for running a simple static webserver for projects like this:
+
+```shell
+npm i -g serve
+git clone git@github.com:davemo/advanced-directives-with-angular-js.git
+cd advanced-directives-with-angular-js
+serve
+```
