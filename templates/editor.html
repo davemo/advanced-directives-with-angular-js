@@ -1,10 +1,10 @@
 <tr class="editor-row">
-  <td colspan="{{columns.length}}">
-    <div ng-repeat="column in columns">
-      <span ng-if="column.title !== 'Edit'">
+  <td colspan="{{cols.length}}">
+    <div ng-repeat="col in cols">
+      <span ng-if="col.title !== 'Edit'">
         <label>
-          {{column.field}}
-          <input type="text" ng-model="row[column.field]" />
+          {{col.field}}
+          <input type="text" ng-model="row[col.field]">
         </label>
       </span>
     </div>
