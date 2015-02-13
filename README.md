@@ -23,3 +23,11 @@ git clone git@github.com:davemo/advanced-directives-with-angular-js.git
 cd advanced-directives-with-angular-js
 serve
 ```
+
+# Extra Credit
+
+Some things in the screencast aren't complete and some things could definitely done better. This section is a challenge to you, the reader/watcher to improve the code and level up your knowledge in the process! Try and tackle some of these challenges if you want:
+
+* Bugfix: the editor currently shows up multiple times, fix it so this doesn't happen (hint: maybe an 'edit' state that's tracked could help the directive know if it should execute `.insertAfter`)
+* Feature: make the expandy arrow thing point down when expanded and to the right when collapsed.
+
