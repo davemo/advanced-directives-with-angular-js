@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Directives with Angular JS</title>
+  <script src="/vendor/jquery.js"></script>
+  <script src="/vendor/angular.js"></script>
+  <script src="/app_module.js"></script>
+  <script src="/grid_directives.js"></script>
+  <style type="text/css">
+    td {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Advanced Directives with Angular JS</h1>
+
+  <pre>
+&lt;grid-screen resource=&quot;/api/data.js&quot;&gt;
+  &lt;grid-columns&gt;
+    &lt;grid-column title=&quot;Product&quot; field=&quot;product&quot; /&gt;
+    &lt;grid-column title=&quot;Description&quot; field=&quot;description&quot; /&gt;
+    &lt;grid-column title=&quot;Cost&quot; field=&quot;cost&quot; /&gt;
+  &lt;/grid-columns&gt;
+  &lt;grid with-inline-editor&gt;&lt;/grid&gt;
+&lt;/grid-screen&gt;
+  </pre>
+
+  <grid-screen resource="/api/data.json">
+    <grid-columns>
+      <grid-column title="Product"     field="product"></grid-column>
+      <grid-column title="Description" field="description"></grid-column>
+      <grid-column title="Cost"        field="cost"></grid-column>
+    </grid-columns>
+    <grid with-inline-editor></grid>
+  </grid-screen>
+
+</body>
+</html>
