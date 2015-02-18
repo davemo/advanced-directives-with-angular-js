@@ -20,6 +20,18 @@ angular.module("app").directive("gridScreen", function($http) {
       this.setColumns = function(cols) {
         $scope.cols = cols;
       };
+        var expanders = [];
+        this.gotOpened = function(selectedExpander) {
+            angular.forEach(expanders, function(expander) {
+                if(selectedExpander != expander) {
+                    expander.showMe = false;
+                }
+            });
+        };
+
+        this.addExpander = function(expander) {
+            expanders.push(expander);
+        }
     },
     link: function(scope, element, attributes) {
       $http.get(attributes.resource).success(function(response) {
@@ -91,19 +103,29 @@ angular.module("app").directive("withInlineEditor", function() {
 });
 angular.module("app").directive("editorInitializer", function($compile, $templateCache) {
   return {
-    restrict: 'E',
+    restrict: 'EA',
+    require: '^gridScreen',
     templateUrl: '/templates/editor_initializer.html',
     controller: function($scope) {
+      $scope.wasInserted = false;
       $scope.edit = function(row) {
         $scope.$broadcast('edit', row);
       };
     },
-    link: function(scope, element, attributes) {
-      scope.$on('edit', function(e, row) {
-        var editor = $compile($templateCache.get("/templates/editor.html"))(scope);
-        $(editor).insertAfter(element.parents("tr"));
+    link: function(scope, element, attributes, gridScreen) {
+        scope.showMe = false;
+        gridScreen.addExpander(scope);
+        scope.$on('edit', function(e, row) {
+          var editor = $compile($templateCache.get("/templates/editor.html"))(scope);
+          if(!scope.wasInserted) {
+             $(editor).insertAfter(element.parents("tr"));
+              scope.wasInserted = true;
+          }
+          scope.showMe = !scope.showMe;
+            gridScreen.gotOpened(scope);
       });
-      console.log('linked editorInitializer');
+
+        console.log('linked editorInitializer');
     }
   };
 });

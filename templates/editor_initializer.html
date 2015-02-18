@@ -1,1 +1,4 @@
-<a ng-click="edit(row)">&#9654;</a>
+<a ng-click="edit(row)">
+  <span ng-if="showMe">&#9654;</span>
+  <span ng-if="!showMe">&#9660;</span>
+</a>
