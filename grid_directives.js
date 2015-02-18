@@ -30,7 +30,6 @@ angular.module("app").directive("gridScreen", function($http) {
         };
 
         this.addExpander = function(expander) {
-            console.log("ADD EXP")
             expanders.push(expander);
         }
     },
@@ -79,7 +78,7 @@ angular.module("app").directive("gridColumn", function() {
 angular.module("app").directive("grid", function() {
   return {
     restrict: 'E',
-    templateUrl: "templates/as_table.html",
+    templateUrl: "/templates/as_table.html",
     replace: true,
     controller: function($scope) {
       $scope.$on('ready-to-render', function(e, rows, cols) {
@@ -106,7 +105,7 @@ angular.module("app").directive("editorInitializer", function($compile, $templat
   return {
     restrict: 'EA',
     require: '^gridScreen',
-    templateUrl: 'templates/editor_initializer.html',
+    templateUrl: '/templates/editor_initializer.html',
     controller: function($scope) {
       $scope.wasInserted = false;
       $scope.edit = function(row) {
@@ -117,7 +116,7 @@ angular.module("app").directive("editorInitializer", function($compile, $templat
         scope.showMe = false;
         gridScreen.addExpander(scope);
         scope.$on('edit', function(e, row) {
-          var editor = $compile($templateCache.get("templates/editor.html"))(scope);
+          var editor = $compile($templateCache.get("/templates/editor.html"))(scope);
           if(!scope.wasInserted) {
              $(editor).insertAfter(element.parents("tr"));
               scope.wasInserted = true;
