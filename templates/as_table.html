@@ -7,7 +7,7 @@
           <td ng-repeat="col in cols">
             <span ng-if="col.title !== 'Edit'">{{row[col.field]}}</span>
             <span ng-if="col.title == 'Edit'">
-                <editor-initializer></editor-initializer>
+              <editor-initializer></editor-initializer>
             </span>
           </td>
         </tr>
