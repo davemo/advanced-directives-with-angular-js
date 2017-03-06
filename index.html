@@ -12,6 +12,18 @@
       border: 1px solid #ccc;
       padding: 5px;
     }
+
+    a {
+      cursor: pointer;
+    }
+
+    a::before {
+      content: '\25B6';
+    }
+
+    .editing a::before {
+      content: '\25BC';
+    }
   </style>
 </head>
 <body>
