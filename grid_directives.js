@@ -94,14 +94,21 @@ angular.module("app").directive("editorInitializer", function($compile, $templat
     restrict: 'E',
     templateUrl: '/templates/editor_initializer.html',
     controller: function($scope) {
+      $scope.editing = false;
       $scope.edit = function(row) {
         $scope.$broadcast('edit', row);
       };
     },
     link: function(scope, element, attributes) {
       scope.$on('edit', function(e, row) {
-        var editor = $compile($templateCache.get("/templates/editor.html"))(scope);
-        $(editor).insertAfter(element.parents("tr"));
+        scope.editing = !scope.editing;
+        $(element.parents("tr")).toggleClass("editing", scope.editing);
+        if(scope.editing) {
+          scope.editor = scope.editor || $compile($templateCache.get("/templates/editor.html"))(scope);
+          $(scope.editor).insertAfter(element.parents("tr"));
+        } else {
+          $(scope.editor).remove();
+        }
       });
       console.log('linked editorInitializer');
     }
