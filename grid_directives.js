@@ -17,6 +17,9 @@ angular.module("app").directive("gridScreen", function($http) {
       this.setEditor = function(editor) {
         $scope.cols.unshift(editor);
       };
+      this.useEditor = function(useEditor) {
+        $scope.useEditor = useEditor;
+      }
       this.setColumns = function(cols) {
         $scope.cols = cols;
       };
@@ -24,7 +27,7 @@ angular.module("app").directive("gridScreen", function($http) {
     link: function(scope, element, attributes) {
       $http.get(attributes.resource).success(function(response) {
         scope.rows = response.data;
-        scope.$broadcast('ready-to-render', scope.rows, scope.cols);
+        scope.$broadcast('ready-to-render', scope.rows, scope.cols, scope.useEditor);
       });
     }
   };
@@ -63,15 +66,35 @@ angular.module("app").directive("gridColumn", function() {
     }
   };
 });
-angular.module("app").directive("grid", function() {
+angular.module("app").service("gridDataMapper", function() {
+  return {
+    toJSGridFields: function(cols, useEditor) {
+      var fields = cols.map(function(col) {
+        return {
+          name: col.field,
+          type: 'text'
+        };
+      });
+      if(useEditor) {
+        fields.unshift({ name: 'edit', type: 'control' });
+      }
+      return fields;
+    }
+  }
+});
+angular.module("app").directive("grid", function(gridDataMapper) {
   return {
     restrict: 'E',
-    templateUrl: "/templates/as_table.html",
+    templateUrl: "/templates/as_js_grid.html",
     replace: true,
-    controller: function($scope) {
-      $scope.$on('ready-to-render', function(e, rows, cols) {
-        $scope.rows = rows;
-        $scope.cols = cols;
+    link: function(scope, element, attributes) {
+      scope.$on('ready-to-render', function(e, rows, cols, useEditor) {
+        $(element).jsGrid({
+          width: "100%",
+          editing: useEditor,
+          data: rows,
+          fields: gridDataMapper.toJSGridFields(cols, useEditor)
+        });
       });
     }
   };
@@ -81,10 +104,7 @@ angular.module("app").directive("withInlineEditor", function() {
     restrict: 'A',
     require: '^gridScreen',
     link: function(scope, element, attributes, gridScreenController) {
-      gridScreenController.setEditor({
-        title: "Edit",
-        field: ""
-      });
+      gridScreenController.useEditor(true);
       console.log('linked withInlineEditor');
     }
   };
