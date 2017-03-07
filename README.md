@@ -1,8 +1,8 @@
 # Advanced Directives with Angular JS
 
-This [screencast](https://www.youtube.com/watch?v=Ty8XcASK9js) examines some of the more advanced features in Angular, specifically Directives and how we can leverage the power of custom elements and attributes to map Domain Specific concepts through HTML, translate those into Value Objects in our Domain, and gain rendered simple HTML output. Also discussed: complexity, creating a DSL with directives, debugging techniques, tips and tricks.
+This repository is the companion to two screencasts:
 
-If you're interested in some more context prior to watching check out my other [angular screencasts](http://www.youtube.com/user/vidjadavemo/videos) and an earlier post on the [power of web components as abstractions](http://blog.testdouble.com/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html); this screencast covers:
+[Part One](https://www.youtube.com/watch?v=Ty8XcASK9js) examines some of the more advanced features in Angular, specifically Directives and how we can leverage the power of custom elements and attributes to map Domain Specific concepts through HTML, translate those into Value Objects in our Domain, and gain rendered simple HTML output. Also discussed: complexity, creating a DSL with directives, debugging techniques, tips and tricks. This screencast covers:
 
 * html as a dsl
 * abstractions in html
@@ -12,6 +12,15 @@ If you're interested in some more context prior to watching check out my other [
 * [directive definition object](https://docs.angularjs.org/api/ng/service/$compile#directive-definition-object)
 * [requiring other directives](https://docs.angularjs.org/api/ng/service/$compile#-require-)
 * [directive communication ($scope.$broadcast, $scope.$on)](https://docs.angularjs.org/guide/scope#scope-events-propagation)
+
+[Part Two](https://www.youtube.com/watch?v=4zG8SfucUzg) continues the examination of some of the advanced features in Part 1. This screencast covers:
+
+* bugfixes for the inline editor
+* auto toggling of editing state using CSS content generation and the angular $scope
+* leveraging the DSL from the first screencast as an interface to a 3rd party JavaScript data grid component: js-grid
+
+If you're interested in some more context prior to watching check out my other [angular screencasts](http://www.youtube.com/user/vidjadavemo/videos) and an earlier post on the [power of web components as abstractions](http://blog.testdouble.com/posts/2013-06-26-what-polymer-and-angular-tell-us-about-the-future-success-of-the-web-platform-and-javascript-frameworks.html); 
+
 
 # Running the Code Locally
 
