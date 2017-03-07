@@ -35,8 +35,8 @@ serve
 
 # Extra Credit
 
-Some things in the screencast aren't complete and some things could definitely done better. This section is a challenge to you, the reader/watcher to improve the code and level up your knowledge in the process! Try and tackle some of these challenges if you want:
+~~Some things in the screencast aren't complete and some things could definitely done better. This section is a challenge to you, the reader/watcher to improve the code and level up your knowledge in the process! Try and tackle some of these challenges if you want:~~
 
-* Bugfix: the editor currently shows up multiple times, fix it so this doesn't happen (hint: maybe an 'edit' state that's tracked could help the directive know if it should execute `.insertAfter`)
-* Feature: make the expandy arrow thing point down when expanded and to the right when collapsed.
+* ~~Bugfix: the editor currently shows up multiple times, fix it so this doesn't happen (hint: maybe an 'edit' state that's tracked could help the directive know if it should execute `.insertAfter`)~~ [Fixed Here](https://github.com/davemo/advanced-directives-with-angular-js/commit/4efc9edfacc3cee791f155d52bf517a7ab251586)
+* ~~Feature: make the expandy arrow thing point down when expanded and to the right when collapsed.~~ [Added Here](https://github.com/davemo/advanced-directives-with-angular-js/commit/2f046f51dda4b54891353b7ec047b3a6e381792d)
 
