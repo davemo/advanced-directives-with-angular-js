@@ -24,7 +24,7 @@ If you're interested in some more context prior to watching check out my other [
 
 # Running the Code Locally
 
-I like to use the npm module [serve]() for running a simple static webserver for projects like this:
+I like to use the npm module [serve](https://github.com/zeit/serve) for running a simple static webserver for projects like this:
 
 ```shell
 npm i -g serve
