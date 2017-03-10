@@ -7,21 +7,25 @@
   <script src="/vendor/angular.js"></script>
   <script src="/app_module.js"></script>
   <script src="/grid_directives.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
   <style type="text/css">
-    td {
+    .grid td {
       border: 1px solid #ccc;
       padding: 5px;
     }
 
-    a {
+    .grid a {
       cursor: pointer;
     }
 
-    a::before {
+    .grid a::before {
       content: '\25B6';
     }
 
-    .editing a::before {
+    .grid.editing a::before {
       content: '\25BC';
     }
   </style>
